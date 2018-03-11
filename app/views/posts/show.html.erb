@@ -1,12 +1,30 @@
 <div class="main posts-show">
   <div class="container">
     <div class="posts-show-item">
-      <p>
-      	<%= @post.content %>
-      	</p>
+<div class="post-user-name">
+        <img src="<%= "/user_images/#{@user.image_name}" %>">
+        <%= link_to(@user.name,"/users/#{@user.id}")  %>
+      </div>
+      <div class = "post-title">
+        <p>
+          <%= @post.title %>
+        </p>
+      </div>
       <div class="post-time">
         <%= @post.created_at %>
       </div>
+      <p>
+        <a href="https://twitter.com/share" class="twitter-share-button" data-text="<%= @post.title%>" data-hashtags="Explog">Tweet</a>
+        <script>
+          !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
+        </script>
+      </p>
+      <hr>
+      <div clsss = "post-content"
+      <p>
+      	<%= @post.content %>
+      	</p>
+
       <div class = "post-menus">
       	<%= link_to("削除", "/posts/#{@post.id}/destroy",{method:"post"}) %>
       </div>
